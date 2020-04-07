@@ -1,8 +1,7 @@
-import matplotlib.pyplot as plt
 import pandas as pd
 from apyori import apriori
 
-sales_data = pd.read_csv('C://Users//James//Desktop//sales.csv')
+sales_data = pd.read_csv('sales.csv')
 
 records = [([str(sales_data.values[i,j]) for j in range(0, 6)]) for i in range(0, sales_data.shape[0])]
 
@@ -51,6 +50,3 @@ apriori_results = pd.DataFrame(list(zip(rules, supports, confidences, lifts)),
 apriori_results.to_csv('C://Users//James//Desktop//apriori_results.csv', encoding='utf-8', index=False)
 
 print(apriori_results)
-
-# plt.bar(rules, lifts)
-# plt.show()
